@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link
+      rel="shortcut icon"
+      href="./icons8-facebook-messenger-48.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center h-screen"
+  >
+    <div id="entryRoom" class="flex flex-col justify-center items-center">
+      <div class="bg-white p-8 rounded-lg shadow-2xl max-w-sm w-full">
+        <div class="flex justify-center mb-4">
+          <img
+            src="./icons8-facebook-messenger-48.png"
+            alt="Chat Icon"
+            class="w-16 h-16"
+          />
+        </div>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6 text-center">
+          Join the Chat
+        </h2>
+        <form id="nameForm">
+          <input
+            type="text"
+            id="nameInput"
+            class="border-2 border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:border-blue-500"
+            placeholder="Enter your name"
+            required
+          />
+          <button
+            type="submit"
+            class="mt-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 w-full rounded-lg hover:shadow-xl transition duration-300 ease-in-out text-lg font-semibold"
+          >
+            Join Now
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("nameForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("nameInput").value.trim();
+          if (name) {
+            localStorage.setItem("userName", name); // Store username in localStorage
+            window.location.href = "chat.html"; // Redirect to chat.html
+          }
+        });
+    </script>
+  </body>
+</html>
